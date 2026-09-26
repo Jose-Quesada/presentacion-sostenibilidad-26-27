@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sostenibilidad aplicada al sistema productivo</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+    <style>
+        .reveal pre code {
+            max-height: 360px;
+            overflow-y: auto;
+            font-size: 80%;
+        }
+
+        .toolbar {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            z-index: 100;
+            display: flex;
+            gap: 8px;
+        }
+
+        .toolbar select {
+            padding: 6px 10px;
+            font-size: 13px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background: rgba(255, 255, 255, 0.92);
+            cursor: pointer;
+            font-family: inherit;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            outline: none;
+            max-width: 460px;
+        }
+
+        .toolbar select:hover {
+            border-color: #999;
+        }
+
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.4rem;
+            color: #888;
+            z-index: 200;
+            font-family: system-ui, sans-serif;
+        }
+
+        .reveal .slides section {
+            overflow: visible;
+        }
+
+        .reveal .slides section.slide-fitted {
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toolbar">
+        <select id="theme-selector" title="Tema"></select>
+        <select id="unit-selector" title="Seleccionar unidad"></select>
+    </div>
+
+    <div id="loading">Cargando presentación…</div>
+
+    <div class="reveal">
+        <div class="slides"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            const SEPARATOR = '^---\\r?$';
+            const SEPARATOR_VERT = '^--\\r?$';
+
+            const units = [
+                '01-fundamentos-sostenibilidad.md',
+                '02-aspectos-ASG-y-grupos-de-interes.md',
+                '03-estandares-metricas-e-inversion-responsable.md',
+                '04-retos-ambientales-y-sociales-sector-informatico.md',
+                '05-economia-circular-verde-y-ecodisenio.md',
+                '06-actividades-sostenibles-en-ti.md',
+                '07-plan-sostenibilidad-e-informe.md',
+                '08-practicas-y-trabajos-sector-informatico.md',
+                '09-casos-empresas-sector-informatico.md',
+                '10-glosario-recursos-bibliografia.md'
+            ];
+
+            const unitLabels = {
+                '01-fundamentos-sostenibilidad.md': 'U1 · Fundamentos de la sostenibilidad',
+                '02-aspectos-ASG-y-grupos-de-interes.md': 'U2 · Aspectos ASG y grupos de interés',
+                '03-estandares-metricas-e-inversion-responsable.md': 'U3 · Estándares, métricas e inversión responsable',
+                '04-retos-ambientales-y-sociales-sector-informatico.md': 'U4 · Retos del sector informático',
+                '05-economia-circular-verde-y-ecodisenio.md': 'U5 · Economía circular, verde y ecodiseño',
+                '06-actividades-sostenibles-en-ti.md': 'U6 · Actividades sostenibles en TI',
+                '07-plan-sostenibilidad-e-informe.md': 'U7 · Plan de sostenibilidad e informe',
+                '08-practicas-y-trabajos-sector-informatico.md': 'U8 · Prácticas y trabajos',
+                '09-casos-empresas-sector-informatico.md': 'U9 · Casos de empresas TIC',
+                '10-glosario-recursos-bibliografia.md': 'U10 · Glosario, recursos y bibliografía'
+            };
+
+            const params = new URLSearchParams(window.location.search);
+            let currentMd = params.get('md') || units[0];
+            if (!units.includes(currentMd)) currentMd = units[0];
+
+            var themes = [
+                { name: 'white',     label: 'White' },
+                { name: 'black',     label: 'Black' },
+                { name: 'league',    label: 'League' },
+                { name: 'sky',       label: 'Sky' },
+                { name: 'beige',     label: 'Beige' },
+                { name: 'simple',    label: 'Simple' },
+                { name: 'serif',     label: 'Serif' },
+                { name: 'night',     label: 'Night' },
+                { name: 'moon',      label: 'Moon' },
+                { name: 'solarized', label: 'Solarized' },
+                { name: 'blood',     label: 'Blood' },
+                { name: 'dracula',   label: 'Dracula' },
+            ];
+
+            var defaultTheme = 'dracula';
+            var currentTheme = params.get('theme') || localStorage.getItem('reveal-theme') || defaultTheme;
+
+            var themeValid = themes.some(function (t) { return t.name === currentTheme; });
+            if (!themeValid) currentTheme = defaultTheme;
+
+            function applyTheme(name) {
+                var href = 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/' + name + '.css';
+                document.getElementById('theme').href = href;
+                localStorage.setItem('reveal-theme', name);
+            }
+
+            applyTheme(currentTheme);
+
+            function buildUrl(md, theme) {
+                var p = [];
+                if (md && md !== units[0]) p.push('md=' + encodeURIComponent(md));
+                if (theme && theme !== defaultTheme) p.push('theme=' + encodeURIComponent(theme));
+                return p.length ? '?' + p.join('&') : '?';
+            }
+
+            var themeSel = document.getElementById('theme-selector');
+            themes.forEach(function (t) {
+                var opt = document.createElement('option');
+                opt.value = t.name;
+                opt.textContent = t.label;
+                if (t.name === currentTheme) opt.selected = true;
+                themeSel.appendChild(opt);
+            });
+
+            themeSel.addEventListener('change', function () {
+                var md = params.get('md') || units[0];
+                applyTheme(this.value);
+                window.location.href = buildUrl(md, this.value);
+            });
+
+            var unitSelector = document.getElementById('unit-selector');
+            units.forEach(function (file, index) {
+                var opt = document.createElement('option');
+                opt.value = file;
+                opt.textContent = unitLabels[file] || 'Unidad ' + (index + 1);
+                if (file === currentMd) opt.selected = true;
+                unitSelector.appendChild(opt);
+            });
+
+            unitSelector.addEventListener('change', function () {
+                window.location.href = buildUrl(this.value, currentTheme);
+            });
+
+            async function loadPresentation(mdFile) {
+                try {
+                    var resp = await fetch(mdFile);
+                    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                    var content = await resp.text();
+
+                    var titleMatch = content.match(/^##\s+(.*?)(?:\s*<!--.*-->)?$/m);
+                    if (titleMatch) {
+                        document.title = titleMatch[1];
+                    }
+
+                    var slidesEl = document.querySelector('.reveal .slides');
+                    var section = document.createElement('section');
+                    section.setAttribute('data-markdown', '');
+                    section.setAttribute('data-separator', SEPARATOR);
+                    section.setAttribute('data-separator-vertical', SEPARATOR_VERT);
+
+                    var template = document.createElement('script');
+                    template.type = 'text/template';
+                    template.textContent = content;
+                    section.appendChild(template);
+
+                    slidesEl.innerHTML = '';
+                    slidesEl.appendChild(section);
+
+                    var deck = new Reveal({
+                        hash: true,
+                        center: true,
+                        transition: 'slide',
+                        margin: 0.04,
+                        markdown: { smartypants: true },
+                        plugins: [RevealMarkdown, RevealNotes, RevealHighlight]
+                    });
+
+                    function fitCurrentSlide() {
+                        var slide = deck.getCurrentSlide();
+                        if (!slide) return;
+                        slide.style.fontSize = '';
+                        slide.classList.remove('slide-fitted');
+                        var size = deck.getComputedSlideSize();
+                        if (!size) return;
+                        var availH = size.height;
+                        var availW = size.width;
+                        var k = 1;
+                        for (var i = 0; i < 12; i++) {
+                            var needH = slide.scrollHeight;
+                            var needW = slide.scrollWidth;
+                            var factor = Math.min(
+                                needH > availH ? availH / needH : 1,
+                                needW > availW ? availW / needW : 1
+                            );
+                            if (factor > 0.999) break;
+                            var step = Math.max(factor, 0.8);
+                            k = Math.max(0.55, k * step);
+                            slide.style.fontSize = (k * 100).toFixed(1) + '%';
+                            if (k <= 0.55) break;
+                        }
+                        if (slide.scrollHeight > availH + 2) {
+                            slide.classList.add('slide-fitted');
+                        } else if (deck.getConfig().center && !slide.classList.contains('stack')) {
+                            slide.style.top = Math.max((availH - slide.scrollHeight) / 2, 0) + 'px';
+                        }
+                    }
+
+                    deck.on('ready', function () {
+                        document.getElementById('loading').style.display = 'none';
+                        fitCurrentSlide();
+                    });
+                    deck.on('slidechanged', fitCurrentSlide);
+                    deck.on('resize', fitCurrentSlide);
+                    deck.on('fragmentshown', fitCurrentSlide);
+                    deck.on('fragmenthidden', fitCurrentSlide);
+                    setTimeout(fitCurrentSlide, 300);
+                    [600, 1500, 3000].forEach(function (t) { setTimeout(fitCurrentSlide, t); });
+                    if (document.fonts && document.fonts.ready) {
+                        document.fonts.ready.then(fitCurrentSlide);
+                    }
+                    window.addEventListener('load', fitCurrentSlide);
+
+                    await deck.initialize();
+
+                } catch (error) {
+                    document.getElementById('loading').textContent =
+                        'Error al cargar ' + mdFile + ': ' + error.message;
+                    console.error(error);
+                }
+            }
+
+            loadPresentation(currentMd);
+        })();
+    </script>
+</body>
+</html>
