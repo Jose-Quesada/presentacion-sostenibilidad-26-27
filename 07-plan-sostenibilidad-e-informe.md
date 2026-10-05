@@ -823,3 +823,22 @@ Toma una empresa del banco de casos (HP, Microsoft, Google, Dell, Indra/Minsait,
 - Sabes **qué espera la rúbrica** y qué errores no debes cometer.
 
 **Siguiente paso:** elige tu empresa del banco de casos y empieza por el mapa de stakeholders.
+
+---
+
+## Actividad · «Extracto ejecutivo y defensa ante el consejo» (tríos)
+
+> Investigación previa + 1 sesión (50 min) + defensas (10 min) · Cubre RA6 · Entregable: mini-plan 2–3 páginas + role-play
+
+- **Consigna:** mini-plan para una empresa TIC: **≥8 stakeholders** · **3 materiales** con doble materialidad · **4 acciones** con meta cuantitativa · **4 KPIs** con estándar, línea base, meta, frecuencia y responsable.
+- **Pasos:** elegir empresa → stakeholders → materialidad → acciones con meta → KPIs → redactar 2–3 páginas → preparar 4 slides y las respuestas.
+- **Defensa:** role-play de **7 min** con roles (dirección, inversores, stakeholders) + **3 min** de preguntas.
+
+---
+
+## Actividad · Entregable y presentación
+
+- **Entregables:** mini-plan (2–3 páginas) + máximo 4 slides + respuestas a 3 preguntas-tipo (coste, viabilidad, impacto/aceptación).
+- **Presentación:** 7 min de defensa + 3 min de preguntas del grupo.
+- **Se valora:** stakeholders y materialidad (25 %) · acciones con meta (25 %) · KPIs (20 %) · defensa y respuestas (20 %) · estructura y fuentes (10 %).
+- **Conexión:** es el **ensayo general del Trimestre 3** (plan e informe completos con rúbrica T3).

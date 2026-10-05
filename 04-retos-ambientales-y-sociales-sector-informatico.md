@@ -839,3 +839,22 @@ DATO: el sector TI consume entre el 1,5 % y el 2 % de la electricidad
 **Siguiente paso:** economía circular, verde y ecodiseño.
 
 **¡A por la evaluación!**
+
+---
+
+## Actividad · «El coste invisible de lo digital» (parejas o tríos)
+
+> 1 sesión (50 min) + exposiciones y votación · Cubre RA2 (a–e) · Entregable: infografía con 6 retos
+
+- **Consigna:** infografía con **6 retos TIC (3 ambientales + 3 sociales)**: dato con fuente, efecto sobre **personas** y sobre **sectores**, 1 **acción con KPI** y 1 **alianza transversal** al pie.
+- **Pasos:** elegir los 6 retos → recopilar datos → trazar la cadena de impacto → acciones + KPI → diseñar.
+- **Al acabar:** votación de los presentados — ¿cuál es el reto **más urgente**?
+
+---
+
+## Actividad · Entregable y presentación
+
+- **Entregables:** infografía (PNG/PDF o lámina) + mínimo 4 fuentes + acción y KPI por reto.
+- **Presentación:** 5 min por grupo + votación (5 min).
+- **Se valora:** cobertura E/S (25 %) · datos con fuente (25 %) · cadena de impacto (20 %) · acciones (15 %) · diseño (15 %).
+- **Conexión:** los retos más votados entran en el **diagnóstico del T1**.

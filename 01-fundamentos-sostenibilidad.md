@@ -346,7 +346,7 @@ Es el marco europeo que traduce la transición ecológica en **política legisla
 |------------|-----------|----------------|
 | **Baterías (2023/1542)** | Huella de carbono, reciclaje y pasaporte digital. | Portátiles, móviles y UPS. |
 | **RAEE (2012/19/UE)** | Responsabilidad ampliada del productor, recogida y reciclaje. | Fin de vida del hardware TIC. |
-| **Minerales críticos** | Seguridad de suministro de litio, cobalto, tierras raras. | Cadenas de suministro de la electrónica. |
+| **Minerales críticos** | Seguridad de suministro de litio, cobalto, [tierras raras](https://www.youtube.com/watch?v=qC817dM5eN8). | Cadenas de suministro de la electrónica. |
 
 ---
 
@@ -846,3 +846,22 @@ ODS prioritarios para el sector TIC: **7** (energía), **9** (innovación e infr
 
 - Siguiente unidad: **aspectos ASG y grupos de interés**.
 - Trae tu empresa TIC elegida y tus 3-5 ODS justificados.
+
+---
+
+## Actividad · «Ruta ODS de una empresa TIC» (parejas)
+
+> 1 sesión (50 min) + exposiciones · Cubre RA1 (b, c) · Entregable: mapa «Ruta ODS» + justificación
+
+- **Consigna:** elegid una empresa TIC del banco de casos y elaborad un mapa con **3–5 ODS prioritarios** justificados con datos o aspectos ASG reales, los marcos internacionales aplicables y los ODS descartados.
+- **Pasos:** 1) investigar la empresa · 2) listar y descartar ODS · 3) justificar los elegidos · 4) dibujar el mapa · 5) exponer.
+- **Regla de oro:** no vale "poner todos": hay que argumentar cada ODS **y cada descarte**.
+
+---
+
+## Actividad · Entregable y presentación
+
+- **Entregables:** mapa (PNG/PDF o lámina) + hoja de justificación + mínimo 2 fuentes citadas.
+- **Presentación:** 5 min por grupo; el grupo os retará con «¿y por qué no el ODS X?».
+- **Se valora:** selección argumentada (35 %) · vínculo empresa–ODS (30 %) · marcos internacionales (15 %) · entregable y defensa (20 %).
+- **Conexión:** es el **arranque del Trimestre 1** (mapa ASG + diagnóstico ODS).

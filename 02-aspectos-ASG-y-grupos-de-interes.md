@@ -779,3 +779,22 @@ Flujo de trabajo sugerido que se ejecuta en el **Trimestre 1** del trabajo grupa
 
 - Siguiente paso: **métricas, estándares e inversión responsable** (RA1.e y f).
 - Trae tu empresa, tus 8 stakeholders y tus 3-5 aspectos materiales.
+
+---
+
+## Actividad · «Tablero de materialidad y stakeholders» (parejas o tríos)
+
+> 1 sesión (50 min) + exposiciones · Cubre RA1 (b, d) · apoya RA6 · Entregable: tablero de 3 piezas
+
+- **Consigna:** para una empresa TIC, elaborad un tablero con **(1)** matriz poder/interés con **≥8 stakeholders**, **(2)** ≥8 aspectos ASG (3E/3S/2G), **(3)** matriz de materialidad con **3 aspectos en la zona crítica**.
+- **Pasos:** stakeholders y expectativas → listar aspectos E/S/G → puntuar en los dos ejes → enlazar aspecto ↔ stakeholder ↔ ODS.
+- **Regla de oro:** un aspecto solo importa si sabes **a qué grupo de interés afecta** y qué riesgo u oportunidad genera.
+
+---
+
+## Actividad · Entregable y presentación
+
+- **Entregables:** tablero digital o lámina + expectativas de 3 stakeholders + 3 materiales con doble justificación.
+- **Presentación:** 6 min por grupo; defender 2 colocaciones discutibles de la matriz.
+- **Se valora:** completitud (30 %) · clasificación razonada (25 %) · materialidad (25 %) · entregable y defensa (20 %).
+- **Conexión:** es el **borrador del mapa ASG y de la matriz de stakeholders del T1**.

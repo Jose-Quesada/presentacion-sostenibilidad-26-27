@@ -751,3 +751,22 @@ EFECTO: la calificacion ESG mueve capital; la sostenibilidad es hoy
 **Siguiente unidad:** retos ambientales y sociales del sector informático.
 
 **¡Mucho ánimo con el repaso!**
+
+---
+
+## Actividad · «Auditoría a un informe ASG real» (parejas)
+
+> Investigación previa + 1 sesión (50 min) + exposiciones · Cubre RA1 (e, f) · Entregable: ficha-auditoría de 1–2 páginas
+
+- **Consigna:** elegid una empresa TIC con informe/web ESG pública y auditad: **estándares que usa** (GRI, ISO, CDP, ISSB), **6 KPIs reales** (2E, 2S, 2G) con valor y fuente, **chequeo CSRD** y **veredicto** (transparente vs. greenwashing).
+- **Pasos:** localizar el informe → identificar estándares → extraer KPIs con su origen → contrastar con la CSRD → redactar 2 conclusiones.
+- **Regla de oro:** todo dato con **valor, unidad y fuente localizable**.
+
+---
+
+## Actividad · Entregable y presentación
+
+- **Entregables:** ficha-auditoría con hipervínculos + tabla de 6 KPIs + veredicto en 2 conclusiones.
+- **Presentación:** 5–6 min de «juicio de auditoría» + 2 min de impugnaciones del grupo.
+- **Se valora:** KPIs (30 %) · fuentes verificables (25 %) · estándares (20 %) · veredicto y defensa (25 %).
+- **Conexión:** prepara las prácticas **P6** y **P8** y las métricas del T1/T3.

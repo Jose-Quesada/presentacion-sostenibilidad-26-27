@@ -958,3 +958,22 @@ Tu empresa tiene 150 equipos informáticos que renueva cada 3 años y tira los a
 - Sabes **analizar** el ciclo de vida y localizar el impacto dominante.
 
 > Siguiente paso: llevar todo esto a tus prácticas y trabajos del módulo.
+
+---
+
+## Actividad · «De lineal a circular: rediseño ecodiseñado» (parejas)
+
+> 1 sesión (50 min) + exposiciones · Cubre RA4 (b–e) · Entregable: panel «antes/después»
+
+- **Consigna:** rediseñad un producto TIC con un panel de 4 piezas: **boceto/maqueta**, ficha con **≥5 principios de ecodiseño**, **diagrama de ciclo de vida** con la etapa dominante marcada y **1 modelo de negocio circular**.
+- **Pasos:** describir el modelo actual → elegir principios → rediseñar → dibujar el LCA → estimar la mejora.
+- **Regla de oro:** identifica **dónde está el impacto dominante** antes de rediseñar.
+
+---
+
+## Actividad · Entregable y presentación
+
+- **Entregables:** panel digital o cartulina + ficha de ecodiseño + LCA + 1 fuente (ISO 14040/14067 o normativa UE).
+- **Presentación:** 6–7 min en formato «esto era → esto es → esto gana el planeta y la empresa».
+- **Se valora:** ecodiseño (30 %) · LCA (25 %) · viabilidad (20 %) · modelo circular y mejora (15 %) · presentación (10 %).
+- **Conexión:** es el **ensayo breve del Trimestre 2** (rediseño a nivel de empresa con métricas).

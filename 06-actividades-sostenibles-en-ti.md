@@ -801,4 +801,23 @@ Eres responsable de TI en una empresa con 300 empleados:
 
 > Con RA4 propones; con RA5 ejecutas. Ambos son lo que un técnico de TI debe saber hacer.
 
+---
+
+## Actividad · «Auditoría verde del aula de informática» (parejas o tríos)
+
+> 1 sesión (50 min) + exposiciones · Cubre RA5 (d, f, i) · Entregable: plan de reducción + checklist + cálculos
+
+- **Consigna:** auditar el aula: **estimar el consumo** (equipos × W × horas × jornadas), completar la **plantilla de plan de reducción** (≥3 impactos → estrategia → normativa → KPI), **estimar el ahorro** (kWh, €, kg CO₂) y elaborar un **checklist de 10 buenas prácticas**.
+- **Pasos:** inventariar → calcular → identificar impactos → plan con normativa → estimar ahorro → checklist.
+- **Regla de oro:** fórmula y supuestos visibles; toda acción con su **norma** (RAEE, ecodiseño…) y su **KPI**.
+
+---
+
+## Actividad · Entregable y presentación
+
+- **Entregables:** tabla del plan de reducción + cálculos con el factor citado + checklist de 10 prácticas.
+- **Presentación:** 5–6 min ante la «dirección del centro» pidiendo aprobar **3 acciones**.
+- **Se valora:** acciones + normativa + KPI (30 %) · consumo estimado (25 %) · ahorro (20 %) · defensa (15 %) · rigor (10 %).
+- **Conexión:** complementa las prácticas **P1/P4/P5** y aporta acciones al plan del **T3**.
+
 

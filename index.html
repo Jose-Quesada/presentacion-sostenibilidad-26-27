@@ -11,7 +11,7 @@
 
     <style>
         .reveal pre code {
-            max-height: 360px;
+            max-height: 9em;
             overflow-y: auto;
             font-size: 80%;
         }
@@ -60,6 +60,31 @@
         .reveal .slides section.slide-fitted {
             overflow-y: auto;
         }
+
+        /* Tamaño base del texto: un poco más grande que el valor por defecto del tema */
+        :root {
+            --r-main-font-size: 44px;
+        }
+
+        /* Fragment: solo animar propiedades visuales. Con `transition: all`
+           (regla de reveal.css) el font-size heredado también se anima y
+           fitCurrentSlide, al medir de forma síncrona, ve un layout viejo. */
+        .reveal .fragment {
+            transition: opacity .2s ease, visibility .2s ease, transform .2s ease,
+                        color .2s ease, text-decoration .2s ease;
+        }
+
+        /* URLs y tokens largos: partir línea en vez de forzar overflow de ancho */
+        .reveal li,
+        .reveal p {
+            overflow-wrap: anywhere;
+        }
+
+        /* Tablas: partir palabra en celda estrecha para que la tabla quepa */
+        .reveal td,
+        .reveal th {
+            overflow-wrap: anywhere;
+        }
     </style>
 </head>
 <body>
@@ -89,28 +114,28 @@
 
             const units = [
                 '01-fundamentos-sostenibilidad.md',
-                '02-aspectos-ASG-y-grupos-de-interes.md',
-                '03-estandares-metricas-e-inversion-responsable.md',
-                '04-retos-ambientales-y-sociales-sector-informatico.md',
-                '05-economia-circular-verde-y-ecodisenio.md',
-                '06-actividades-sostenibles-en-ti.md',
-                '07-plan-sostenibilidad-e-informe.md',
-                '08-practicas-y-trabajos-sector-informatico.md',
-                '09-casos-empresas-sector-informatico.md',
-                '10-glosario-recursos-bibliografia.md'
+                // '02-aspectos-ASG-y-grupos-de-interes.md',
+                // '03-estandares-metricas-e-inversion-responsable.md',
+                // '04-retos-ambientales-y-sociales-sector-informatico.md',
+                // '05-economia-circular-verde-y-ecodisenio.md',
+                // '06-actividades-sostenibles-en-ti.md',
+                // '07-plan-sostenibilidad-e-informe.md',
+                // '08-practicas-y-trabajos-sector-informatico.md',
+                // '09-casos-empresas-sector-informatico.md',
+                // '10-glosario-recursos-bibliografia.md'
             ];
 
             const unitLabels = {
                 '01-fundamentos-sostenibilidad.md': 'U1 · Fundamentos de la sostenibilidad',
-                '02-aspectos-ASG-y-grupos-de-interes.md': 'U2 · Aspectos ASG y grupos de interés',
-                '03-estandares-metricas-e-inversion-responsable.md': 'U3 · Estándares, métricas e inversión responsable',
-                '04-retos-ambientales-y-sociales-sector-informatico.md': 'U4 · Retos del sector informático',
-                '05-economia-circular-verde-y-ecodisenio.md': 'U5 · Economía circular, verde y ecodiseño',
-                '06-actividades-sostenibles-en-ti.md': 'U6 · Actividades sostenibles en TI',
-                '07-plan-sostenibilidad-e-informe.md': 'U7 · Plan de sostenibilidad e informe',
-                '08-practicas-y-trabajos-sector-informatico.md': 'U8 · Prácticas y trabajos',
-                '09-casos-empresas-sector-informatico.md': 'U9 · Casos de empresas TIC',
-                '10-glosario-recursos-bibliografia.md': 'U10 · Glosario, recursos y bibliografía'
+                // '02-aspectos-ASG-y-grupos-de-interes.md': 'U2 · Aspectos ASG y grupos de interés',
+                // '03-estandares-metricas-e-inversion-responsable.md': 'U3 · Estándares, métricas e inversión responsable',
+                // '04-retos-ambientales-y-sociales-sector-informatico.md': 'U4 · Retos del sector informático',
+                // '05-economia-circular-verde-y-ecodisenio.md': 'U5 · Economía circular, verde y ecodiseño',
+                // '06-actividades-sostenibles-en-ti.md': 'U6 · Actividades sostenibles en TI',
+                // '07-plan-sostenibilidad-e-informe.md': 'U7 · Plan de sostenibilidad e informe',
+                // '08-practicas-y-trabajos-sector-informatico.md': 'U8 · Prácticas y trabajos',
+                // '09-casos-empresas-sector-informatico.md': 'U9 · Casos de empresas TIC',
+                // '10-glosario-recursos-bibliografia.md': 'U10 · Glosario, recursos y bibliografía'
             };
 
             const params = new URLSearchParams(window.location.search);
@@ -214,29 +239,42 @@
                         markdown: { smartypants: true },
                         plugins: [RevealMarkdown, RevealNotes, RevealHighlight]
                     });
+                    window.__deck = deck;
 
                     function fitCurrentSlide() {
                         var slide = deck.getCurrentSlide();
                         if (!slide) return;
+                        var prevK = slide.style.fontSize ? (parseFloat(slide.style.fontSize) / 100) : 1;
+                        if (!(prevK > 0)) prevK = 1;
                         slide.style.fontSize = '';
+                        slide.style.top = '';
                         slide.classList.remove('slide-fitted');
                         var size = deck.getComputedSlideSize();
                         if (!size) return;
                         var availH = size.height;
                         var availW = size.width;
-                        var k = 1;
-                        for (var i = 0; i < 12; i++) {
-                            var needH = slide.scrollHeight;
-                            var needW = slide.scrollWidth;
-                            var factor = Math.min(
-                                needH > availH ? availH / needH : 1,
-                                needW > availW ? availW / needW : 1
-                            );
-                            if (factor > 0.999) break;
-                            var step = Math.max(factor, 0.8);
-                            k = Math.max(0.55, k * step);
-                            slide.style.fontSize = (k * 100).toFixed(1) + '%';
-                            if (k <= 0.55) break;
+                        var needH = slide.scrollHeight;
+                        var needW = slide.scrollWidth;
+                        var fits = needH <= availH && needW <= availW;
+                        if (!fits) {
+                            // Búsqueda binaria del mayor k que cabe (H y W).
+                            // Se guarda el string EXACTO probado: si el final
+                            // redondeara distinto, un cambio de línea en el
+                            // umbral desbordaría la diapositiva.
+                            var lo = 0.45, loSize = '45.00%', hi = 1, k = 1;
+                            for (var i = 0; i < 12; i++) {
+                                k = (lo + hi) / 2;
+                                slide.style.fontSize = (k * 100).toFixed(2) + '%';
+                                if (slide.scrollHeight <= availH && slide.scrollWidth <= availW) {
+                                    lo = k;
+                                    loSize = slide.style.fontSize;
+                                } else {
+                                    hi = k;
+                                }
+                            }
+                            slide.style.fontSize = loSize;
+                        } else if (prevK < 1 && (needH > availH * 0.99 || needW > availW)) {
+                            slide.style.fontSize = (prevK * 100).toFixed(1) + '%';
                         }
                         if (slide.scrollHeight > availH + 2) {
                             slide.classList.add('slide-fitted');
@@ -245,14 +283,25 @@
                         }
                     }
 
+                    var settleTimer = null;
+                    function scheduleSettleFit() {
+                        if (settleTimer) clearTimeout(settleTimer);
+                        settleTimer = setTimeout(fitCurrentSlide, 350);
+                    }
+
                     deck.on('ready', function () {
                         document.getElementById('loading').style.display = 'none';
                         fitCurrentSlide();
+                        scheduleSettleFit();
                     });
-                    deck.on('slidechanged', fitCurrentSlide);
+                    deck.on('slidechanged', function () { fitCurrentSlide(); scheduleSettleFit(); });
                     deck.on('resize', fitCurrentSlide);
-                    deck.on('fragmentshown', fitCurrentSlide);
-                    deck.on('fragmenthidden', fitCurrentSlide);
+                    deck.on('fragmentshown', function () { fitCurrentSlide(); scheduleSettleFit(); });
+                    deck.on('fragmenthidden', function () { fitCurrentSlide(); scheduleSettleFit(); });
+                    var themeEl = document.getElementById('theme');
+                    if (themeEl) {
+                        themeEl.addEventListener('load', function () { fitCurrentSlide(); scheduleSettleFit(); });
+                    }
                     setTimeout(fitCurrentSlide, 300);
                     [600, 1500, 3000].forEach(function (t) { setTimeout(fitCurrentSlide, t); });
                     if (document.fonts && document.fonts.ready) {
