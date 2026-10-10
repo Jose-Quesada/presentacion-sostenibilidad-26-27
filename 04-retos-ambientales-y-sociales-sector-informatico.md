@@ -1,6 +1,26 @@
 ## Unidad 04 · Retos ambientales y sociales del sector informático
 
+<span class="badge badge-ra">RA2 · Criterios a–e</span>
+<span class="badge badge-alerta">Retos Críticos TIC</span>
+<span class="badge badge-cloud">Centros de Datos & IA</span>
+<span class="badge badge-hardware">RAEE & Minerales Críticos</span>
+
 ### Módulo 1708 · Sostenibilidad aplicada al sistema productivo
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">2% – 4%</div>
+    <div class="stat-label">Emisiones globales GEI por TIC</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">62 Mt</div>
+    <div class="stat-label">RAEE generado al año en el mundo</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">~200-400 TWh</div>
+    <div class="stat-label">Consumo anual CPDs e IA</div>
+  </div>
+</div>
 
 **Trabajas:** RA2 · criterios de evaluación **a** a **e**
 
@@ -59,27 +79,30 @@ En esta unidad trabajas **todos** los criterios de evaluación de ese resultado 
 
 ## 1 · El sector TIC: fuente de impacto y palanca de solución
 
-### Criterio RA2.b
+```mermaid
+flowchart LR
+    E["⚡ <b>TIC como Emisor Directo</b><br/>2-3% de electricidad mundial<br/>Data centers, IA y RAEE"] <==>|Paradoja Dual| P["🌱 <b>Palanca Habilitadora</b><br/>-15% emisiones globales<br/>Smart grids y logística verde"]
+```
 
-El sector TIC es **simultáneamente** parte del problema y parte de la solución: no lo olvides nunca en una pregunta de examen.
+El sector TIC es **simultáneamente** parte del problema y parte de la solución: no lo olvides nunca en una pregunta de examen. <!-- .element: class="fragment" -->
 
 --
 
 ## Como fuente de impacto
 
-- Consume **energía, agua y minerales**.
-- Genera **residuos electrónicos**.
-- Su crecimiento (**cloud** e **IA**) dispara la demanda eléctrica global.
-- Su cadena de suministro es **global y opaca**.
+- Consume **energía, agua y minerales críticos**. <!-- .element: class="fragment fade-up" -->
+- Genera **residuos electrónicos (RAEE)** de difícil reciclaje. <!-- .element: class="fragment fade-up" -->
+- El auge del **Cloud y la IA** dispara la demanda eléctrica global. <!-- .element: class="fragment fade-up" -->
+- Su cadena de componentes es **global, opaca y dispersa**. <!-- .element: class="fragment fade-up" -->
 
 --
 
 ## Como palanca de solución
 
-- **Digitaliza** procesos para hacerlos más eficientes.
-- Habilita las **energías renovables** con gestión de red inteligente.
-- Permite el **teletrabajo** y reduce desplazamientos.
-- Sustenta **smart cities** y monitorización ambiental con datos y sensores.
+- **Optimización industrial:** sensores IoT y algoritmos que ahorran combustible y energía. <!-- .element: class="fragment fade-up" -->
+- **Habilita renovables:** gestión predictiva de la red eléctrica (*Smart Grids*). <!-- .element: class="fragment fade-up" -->
+- **Descarbonización de la movilidad:** teletrabajo, software de rutas y virtualización. <!-- .element: class="fragment fade-up" -->
+- **Smart Cities:** monitorización ambiental en tiempo real y gobernanza del agua. <!-- .element: class="fragment fade-up" -->
 
 ---
 
@@ -103,23 +126,21 @@ El sector TIC es **simultáneamente** parte del problema y parte de la solución
 
 ## 2 · Retos ambientales del sector TIC
 
-### Mapa rápido
+```mermaid
+flowchart TD
+    A["<b>1. Minería Crítica</b><br/>(Coltán, Litio, Cobalto en África y Sudamérica)"] --> B["<b>2. Fabricación de Chips</b><br/>(Salas blancas, agua ultrapura y alta energía)"]
+    B --> C["<b>3. Data Centers e IA</b><br/>(Consumo continuo 24/7 y refrigeración)"]
+    C --> D["<b>4. Fase de Uso y Redes</b><br/>(Millones de dispositivos cliente y streaming)"]
+    D --> E["<b>5. Residuo RAEE Final</b><br/>(Metales pesados, toxicidad y pérdida de materiales)"]
+```
 
-1. Consumo energético y emisiones GEI.
-2. Huella hídrica.
-3. Residuos electrónicos (RAEE).
-4. Minerales críticos y cadena de suministro.
-5. Obsolescencia programada y durabilidad.
-6. Uso del suelo e infraestructuras.
-
---
-
-## Reto ambiental 1 · Consumo energético y emisiones GEI
-
-- Los **data centers** son los mayores consumidores: servidores, refrigeración y redes.
-- El crecimiento de la **IA** dispara la demanda: entrenar y ejecutar modelos consume mucha electricidad.
-- La **electricidad** es el principal componente del **Alcance 2**.
-- La fabricación de componentes (chips, placas) concentra el **Alcance 3**.
+### Los 6 grandes desafíos ambientales TIC:
+1. **Consumo energético y emisiones GEI** (IA, cloud y redes). <!-- .element: class="fragment" -->
+2. **Huella hídrica** (climatización evaporativa en zonas secas). <!-- .element: class="fragment" -->
+3. **Residuos electrónicos (RAEE)** (62 millones de toneladas al año). <!-- .element: class="fragment" -->
+4. **Minerales críticos** (dependencia de tierras raras y minería de conflicto). <!-- .element: class="fragment" -->
+5. **Obsolescencia prematura** (hardware descartado por falta de parches de software). <!-- .element: class="fragment" -->
+6. **Uso del suelo** (macrocentros de datos compitiendo con agricultura y vivienda). <!-- .element: class="fragment" -->
 
 ---
 

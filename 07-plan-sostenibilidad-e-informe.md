@@ -1,6 +1,26 @@
 ## Unidad 07 · Plan de sostenibilidad e informe de sostenibilidad
 
+<span class="badge badge-ra">RA6 (a–e) · Proyecto Integrador</span>
+<span class="badge badge-tic">Plan Estratégico ASG</span>
+<span class="badge badge-kpi">KPIs SMART</span>
+<span class="badge badge-e">Memoria CSRD / GRI</span>
+
 **Módulo 1708 · Sostenibilidad aplicada al sistema productivo**
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">5 Fases</div>
+    <div class="stat-label">Del diagnóstico a la rendición auditada</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">SMART</div>
+    <div class="stat-label">Criterio metodológico para objetivos</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">3 Alcances</div>
+    <div class="stat-label">Descarbonización Scope 1, 2 y 3</div>
+  </div>
+</div>
 
 - Trimestre 3 · el trabajo integrador del módulo
 - Trabajas el **RA6** y sus cinco criterios (a–e)
@@ -89,10 +109,27 @@ De aquí salen: **acciones → KPIs → informe**.
 
 ## 1 · ¿Qué es un plan de sostenibilidad?
 
-Un **plan de sostenibilidad** (también llamado *estrategia* o *política* ASG) es el documento que fija hacia dónde va la organización en sostenibilidad y cómo comprobará que llega.
+```mermaid
+flowchart TD
+    subgraph F1 ["Fase 1: Diagnóstico"]
+        A["Mapeo de Stakeholders<br/>(Matriz Mendelow)"] --> B["Identificación de Aspectos ASG"]
+    end
+    subgraph F2 ["Fase 2: Materialidad"]
+        B --> C["Matriz de Doble Materialidad<br/>(Impacto + Financiera)"]
+    end
+    subgraph F3 ["Fase 3: Estrategia"]
+        C --> D["Definición de Objetivos SMART"]
+        D --> E["Planes de Acción<br/>(Mitigación y Oportunidad)"]
+    end
+    subgraph F4 ["Fase 4: Medición"]
+        E --> F["Cuadro de Mando y KPIs ESG<br/>(GRI, ISO 14064, PUE)"]
+    end
+    subgraph F5 ["Fase 5: Rendición"]
+        F --> G["Informe de Sostenibilidad<br/>(CSRD/ESRS o GRI)"]
+    end
+```
 
-- No es un catálogo de buenas intenciones.
-- Es un documento con **responsables, fechas y números**.
+Un **plan de sostenibilidad** fija hacia dónde va la organización y cómo verificará sus metas con **responsables, fechas y datos auditables**. <!-- .element: class="fragment" -->
 
 --
 

@@ -1,5 +1,9 @@
 ## Unidad 01 · Fundamentos de sostenibilidad y marcos internacionales
 
+<span class="badge badge-ra">RA1 (criterios a, b, c)</span>
+<span class="badge badge-tic">Sector Informática & TIC</span>
+<span class="badge badge-cloud">Cloud & Data Centers</span>
+
 **Módulo 1708 · Sostenibilidad aplicada al sistema productivo (30 h)**
 
 - Bloque de trabajo: **concepto de sostenibilidad, marcos internacionales y ODS**.
@@ -12,6 +16,21 @@
 ## El módulo en 30 horas
 
 > **Finalidad (Art. 100, literal):** "El módulo de Sostenibilidad aplicada al sistema productivo tendrá como finalidad el desarrollo de conocimiento y competencias básicas en economía verde, sostenibilidad e impacto ambiental de la actividad, así como las condiciones en que las exigencias de la transición ecológica modifican los procesos productivos del sector correspondiente."
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">30 h</div>
+    <div class="stat-label">Carga lectiva oficial</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">3 ECTS</div>
+    <div class="stat-label">Equivalencia crediticia</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">6 RA</div>
+    <div class="stat-label">Resultados aprendizaje</div>
+  </div>
+</div>
 
 - **Código:** 1708 · **Duración:** 30 horas (3 ECTS).
 - **Ámbito:** común a ciclos de grado medio y superior.
@@ -100,23 +119,35 @@ La definición une por primera vez **lo social** (necesidades) con **lo ambienta
 
 ## Bloque 1 · Los tres pilares de la sostenibilidad
 
-La sostenibilidad se apoya en el equilibrio de tres dimensiones que se retroalimentan:
+```mermaid
+flowchart TD
+    subgraph TBL ["Triple Dimensión (Brundtland / Elkington)"]
+        E["<b>Ambiental (Planet)</b><br/>Límites ecológicos y clima"]
+        S["<b>Social (People)</b><br/>Equidad, derechos y talento"]
+        G["<b>Gobernanza (Prosperity)</b><br/>Viabilidad, ética y transparencia"]
+    end
+    E --- S
+    S --- G
+    G --- E
+```
 
 | Pilar | Pregunta clave | Ejemplo en sector TIC |
 |---------|----------------|----------------------|
-| **Ambiental (E)** | ¿Cómo afecta la actividad al planeta? | Consumo energético de data centers, residuos electrónicos. |
-| **Social (S)** | ¿Cómo afecta a las personas y comunidades? | Condiciones laborales en fábricas, brecha digital, privacidad. |
-| **Gobernanza / Económico (G)** | ¿Cómo se toma y rinde cuentas? | Transparencia, ética corporativa, cadena de suministro responsable. |
+| <span class="badge badge-e">Ambiental</span> | ¿Cómo afecta la actividad al planeta? | Consumo energético de data centers, residuos electrónicos. |
+| <span class="badge badge-s">Social</span> | ¿Cómo afecta a personas y sociedad? | Condiciones laborales, brecha digital, privacidad de datos. |
+| <span class="badge badge-g">Gobernanza</span> | ¿Cómo se toman decisiones y rinde cuentas? | Transparencia, ética corporativa, compras responsables. |
 
 --
 
 ## Los tres pilares en un data center
 
-- **E:** kilovatios consumidos, huella hídrica de la refrigeración, servidores al final de su vida útil.
-- **S:** condiciones de quienes fabrican los servidores, brecha digital en el entorno, privacidad de los clientes.
-- **G:** quién decide y cómo rinde cuentas: auditorías, informes ESG, compras a proveedores auditados.
+- <span class="badge badge-e">E</span> **Kilovatios y agua:** consumo de racks, huella hídrica de climatización, servidores obsoletos. <!-- .element: class="fragment fade-up" -->
+- <span class="badge badge-s">S</span> **Personas:** derechos en fabricación de microchips, talento técnico, privacidad de clientes. <!-- .element: class="fragment fade-up" -->
+- <span class="badge badge-g">G</span> **Control y reporte:** auditorías externas, comités éticos de IA, proveedores auditados. <!-- .element: class="fragment fade-up" -->
 
-Si un pilar falla, los otros dos se resienten: no hay negocio sostenible sin los tres.
+<div class="box-highlight fragment fade-up">
+<b>Regla de oro:</b> Si un pilar falla, los otros dos colapsan: no existe viabilidad económica sin sostenibilidad ambiental y legitimidad social.
+</div>
 
 --
 
@@ -206,12 +237,19 @@ Estos son los principales, en orden cronológico y de alcance: Río 1992, ODM, R
 
 ## Cronología de los marcos en un vistazo
 
+```mermaid
+flowchart TD
+    C1992["<b>1992 · Río de Janeiro</b><br/>Cumbre de la Tierra · Agenda 21 · 3 Convenios"] --> C2000["<b>2000-2015 · Cumbre Milenio</b><br/>8 Objetivos del Milenio (ODM)"]
+    C2000 --> C2015["<b>2015 · París y Nueva York</b><br/>Acuerdo París (&lt;1,5 °C) + Agenda 2030 (17 ODS)"]
+    C2015 --> C2019["<b>2019 · Pacto Verde Europeo</b><br/>Neutralidad 2050 · CSRD · Taxonomía UE"]
+```
+
 - **1992** · Cumbre de la Tierra: Agenda 21 y tres convenios.
 - **2000-2015** · Objetivos de Desarrollo del Milenio (ODM).
-- **2012** · Río+2: nace con fuerza la **economía verde**.
+- **2012** · Río+20: nace con fuerza la **economía verde**.
 - **2015** · Acuerdo de París + Agenda 2030 con los **17 ODS**.
-- **2019** · Pacto Verde Europeo.
-- **2022** · Kunming-Montreal: Marco Global de Biodiversidad.
+- **2019** · Pacto Verde Europeo (Fit for 55).
+- **2022** · Kunming-Montreal: Marco Global de Biodiversidad (30x30).
 
 ---
 
@@ -557,9 +595,15 @@ Cuatro ideas que te van a pedir en ejercicios y en el trabajo grupal: doble mate
 
 ## Doble materialidad: el concepto que lo conecta todo
 
-- **Materialidad financiera (impacto EN la empresa):** cómo los temas ASG afectan al valor económico.
-- **Materialidad temática o externa (impacto DE la empresa):** cómo la empresa afecta a personas y planeta.
-- La **CSRD** obliga a analizar **ambas direcciones**.
+```mermaid
+flowchart TD
+    A["<b>Entorno Natural y Social</b>"] -->|"<b>Outside-In</b> (Materialidad Financiera)"| B["<b>Empresa TIC</b><br/>(Costes, Ingresos, Valor)"]
+    B -->|"<b>Inside-Out</b> (Materialidad de Impacto)"| C["<b>Planeta y Personas</b><br/>(Emisiones, Agua, Derechos)"]
+```
+
+- **Materialidad financiera (Outside-In):** cómo los riesgos climáticos, costes energéticos y normativas afectan al balance contable. <!-- .element: class="fragment" -->
+- **Materialidad de impacto (Inside-Out):** cómo la actividad de servidores, chips y código impacta en la biosfera y la sociedad. <!-- .element: class="fragment" -->
+- La directiva europea **CSRD** obliga a reportar **ambas direcciones**. <!-- .element: class="fragment" -->
 
 --
 
@@ -585,11 +629,20 @@ Pregunta clave: **¿a quién o qué afecto yo?**
 
 ## Huella de carbono: Alcance 1, 2 y 3
 
+```mermaid
+flowchart TD
+    subgraph Alcances ["Inventario GEI (GHG Protocol / ISO 14064)"]
+        S1["<b>Alcance 1 (Directas)</b><br/>Grupos electrógenos diésel de respaldo"]
+        S2["<b>Alcance 2 (Indirectas Energía)</b><br/>Electricidad consumida por servidores"]
+        S3["<b>Alcance 3 (Cadena de Valor)</b><br/>Chips de terceros, hardware, transporte y RAEE"]
+    end
+```
+
 | Alcance | Qué incluye | Ejemplo en TIC |
 |---------|-------------|----------------|
-| **1** | Emisiones directas (combustión propia) | Gasoil de grupos electrógenos y calefacción de oficinas. |
-| **2** | Energía comprada | Electricidad de data centers y oficinas. |
-| **3** | Resto de la cadena de valor | Fabricación de componentes, uso del producto y logística. |
+| **1** | Emisiones directas (combustión propia) | Gasoil de grupos electrógenos y calderas. |
+| **2** | Energía comprada de la red | Electricidad de centros de datos y oficinas. |
+| **3** | Resto de la cadena de valor (>70%) | Fabricación de chips, servidores, viajes y RAEE. |
 
 --
 

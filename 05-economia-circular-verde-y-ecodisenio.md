@@ -1,6 +1,26 @@
-## Unidad 05 · Economía circular, economía verde, ecodiseño y ciclo de vida
+## Unidad 05 · Economía circular, ecodiseño y ciclo de vida
+
+<span class="badge badge-ra">RA4 · Criterios a–f</span>
+<span class="badge badge-tic">Economía Circular 9R</span>
+<span class="badge badge-software">Green Coding</span>
+<span class="badge badge-hardware">Ecodiseño Hardware (ESPR)</span>
 
 **Módulo 1708 · Sostenibilidad aplicada al sistema productivo**
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">75% – 80%</div>
+    <div class="stat-label">Huella en fabricación de PCs</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">9R</div>
+    <div class="stat-label">Estrategias de circularidad</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">ISO 14040</div>
+    <div class="stat-label">Análisis de Ciclo de Vida</div>
+  </div>
+</div>
 
 Del modelo lineal al ciclo de vida: cómo proponer productos y servicios TIC responsables.
 
@@ -197,13 +217,29 @@ Criterios de evaluación (RD 659/2023, Anexo VIII, BOE):
 
 --
 
-## Mantener el valor en uso: la jerarquía circular
+## El marco de las 9R de la economía circular
 
-- **Reutilizar** el equipo tal cual entre usuarios o proyectos.
-- **Reparar** averías con repuestos disponibles.
-- **Reacondicionar**: revisar, actualizar y volver a vender con garantía.
-- **Remanufacturar**: reutilizar estructuras y componentes para fabricar "como nuevo".
-- **Reciclar** como última opción: recuperar materiales sin perder calidad.
+```mermaid
+flowchart TD
+    subgraph AltaCircularidad ["Uso más inteligente (Mayor valor)"]
+        R0["<b>R0 Rechazar</b>"] --> R1["<b>R1 Repensar</b>"] --> R2["<b>R2 Reducir</b>"]
+    end
+    subgraph ExtensionVida ["Extensión de vida útil"]
+        R3["<b>R3 Reutilizar</b>"] --> R4["<b>R4 Reparar</b>"] --> R5["<b>R5 Restaurar</b>"] --> R6["<b>R6 Remanufacturar</b>"]
+    end
+    subgraph FinDeVida ["Aplicación útil de materiales"]
+        R7["<b>R7 Reorientar</b>"] --> R8["<b>R8 Reciclar</b>"] --> R9["<b>R9 Recuperar Energía</b>"]
+    end
+    AltaCircularidad ==> ExtensionVida ==> FinDeVida
+```
+
+--
+
+## Jerarquía de valor en la electrónica
+
+- <span class="badge badge-e">Prioridad Máxima (R0–R2)</span> Evitar compras superfluas, consolidar servidores y optimizar código. <!-- .element: class="fragment" -->
+- <span class="badge badge-s">Vida Útil (R3–R6)</span> Reparación con repuestos disponibles, reacondicionado garantizado y modelos DaaS. <!-- .element: class="fragment" -->
+- <span class="badge badge-alert">Fin de Ciclo (R7–R9)</span> Reciclaje de alta calidad recuperando oro y coltán; la valorización energética es el último recurso. <!-- .element: class="fragment" -->
 
 ---
 
@@ -479,6 +515,21 @@ El **ecodiseño** integra criterios ambientales **desde el diseño** del product
 - Menos ciclos de CPU → menos kWh → menos emisiones y menor factura.
 - **Punto clave:** el ecodiseño energético del software es tan importante como el del hardware.
 
+--
+
+## Green Coding · Consumo energético por lenguaje
+
+| Lenguaje | Ratio Energía | Compilación | Enfoque Sostenible |
+|:---|:---:|:---|:---|
+| **C / Rust** | **1,00× – 1,03×** | Código máquina nativo | Máxima eficiencia en servicios críticos. |
+| **C++** | **1,34×** | Nativo orientado a objetos | Motores gráficos e IA intensiva. |
+| **Java** | **1,98×** | Bytecode en JVM | Microservicios corporativos optimizados. |
+| **Go** | **3,23×** | Concurrente compilado | Microservicios cloud y Kubernetes. |
+| **JavaScript (Node)** | **4,45×** | JIT asíncrono | APIs web escalables I/O bound. |
+| **Python** | **75,88×** | Interpretado dinámico | Prototipado (usar bindings C/Rust para producción). |
+
+*(Estudio de referencia de Pereira et al., Universidad de Minho / ACM Green Software).*
+
 ---
 
 ## Caso: rediseñar un servidor con ecodiseño
@@ -569,11 +620,28 @@ El **LCA** evalúa los impactos ambientales en **todas las etapas**, evitando re
 
 ## Las cinco etapas del ciclo de vida
 
-1. **Extracción:** minerales y materias primas.
-2. **Manufactura:** fabricación de chips, placas y ensamblaje.
-3. **Distribución y logística:** transporte y embalaje.
-4. **Uso:** energía, mantenimiento y actualizaciones.
-5. **Fin de vida:** reciclaje o vertedero.
+```mermaid
+flowchart TD
+    A["<b>1. Extracción</b><br/>Litio, Coltán, Silicio"] --> B["<b>2. Fabricación</b><br/>Chips y Ensamblaje"]
+    B --> C["<b>3. Distribución</b><br/>Logística y Embalaje"]
+    C --> D["<b>4. Uso Operativo</b><br/>Consumo eléctrico 24/7"]
+    D --> E["<b>5. Fin de Vida</b><br/>RAEE y Reciclaje"]
+```
+
+--
+
+## Metodología de Análisis de Ciclo de Vida (ISO 14040)
+
+```mermaid
+flowchart TD
+    subgraph ISO14040 ["Metodología de 4 Fases (ISO 14040 / 14044)"]
+        F1["1. Definición de Objetivo y Alcance"] --> F2["2. Análisis de Inventario (LCI)"]
+        F2 --> F3["3. Evaluación de Impacto (LCIA)"]
+        F3 --> F4["4. Interpretación y Mejora"]
+        F4 -.-> F2
+        F4 -.-> F1
+    end
+```
 
 --
 

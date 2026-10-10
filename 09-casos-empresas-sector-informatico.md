@@ -1,5 +1,27 @@
 ## Unidad 09 · Casos de empresas del sector informático
 
+<span class="badge badge-tic">Banco de Casos Reales</span>
+<span class="badge badge-cloud">Cloud Hyperscalers</span>
+<span class="badge badge-hardware">Hardware & Telco</span>
+<span class="badge badge-e">Memorias de Sostenibilidad</span>
+
+**Módulo 1708 · Sostenibilidad aplicada al sistema productivo**
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">7 Líderes</div>
+    <div class="stat-label">Empresas tecnológicas analizadas</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Datos de memorias oficiales auditadas</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">4 Sectores</div>
+    <div class="stat-label">Hardware, Cloud, Software y Telco</div>
+  </div>
+</div>
+
 ---
 
 ## Qué vas a aprender en esta unidad
@@ -75,23 +97,34 @@
 
 ---
 
-## Los 6 bloques de cada ficha de empresa
+## El ecosistema de casos tecnológicos
 
-1. **Sector** y perfil de negocio.
-2. **Compromisos** destacados de sostenibilidad.
-3. **KPIs / métricas** típicos con sus unidades.
-4. **ODS prioritarios** sugeridos.
-5. **Aspectos ASG materiales.**
-6. **Aprovechamiento en clase** (trabajo T1, T2 o T3).
+```mermaid
+flowchart TD
+    TIC["🏢 <b>Ecosistema Empresarial Sostenible TIC</b>"]
+    TIC --> HW["💻 <b>Fabricantes Hardware</b>"]
+    TIC --> CL["☁️ <b>Cloud e Inteligencia Artificial</b>"]
+    TIC --> TEL["📡 <b>Telecomunicaciones y Servicios</b>"]
+    HW --> HP["<b>HP Inc.</b><br/>Circularidad y plásticos"]
+    HW --> DELL["<b>Dell</b><br/>DaaS y Concept Luna"]
+    HW --> APPLE["<b>Apple</b><br/>Daisy y Net Zero 2030"]
+    CL --> MSFT["<b>Microsoft</b><br/>Carbon Negative 2030"]
+    CL --> GOOG["<b>Google</b><br/>Energía limpia 24/7"]
+    CL --> AWS["<b>AWS</b><br/>The Climate Pledge"]
+    TEL --> INDRA["<b>Indra / Minsait</b><br/>Smart Cities en España"]
+    TEL --> TELE["<b>Telefónica</b><br/>Fibra óptica y red verde"]
+```
 
 --
 
-## Ejemplo de lectura: HP en 30 segundos
+## Los 6 bloques de cada ficha de empresa
 
-- **Sector:** fabrica hardware → su residuo es el problema central.
-- **KPIs:** % plástico reciclado y kg de hardware reciclado.
-- **ODS:** 12, 9, 13 → producción responsable e innovación.
-- **Trabajo:** ideal para T2 y T3 sobre economía circular del cartucho.
+1. **Sector** y perfil de negocio en TIC.
+2. **Compromisos** destacados de sostenibilidad (net-zero, PPA renovable).
+3. **KPIs / métricas** típicos con sus unidades (tCO₂e, PUE, kg RAEE).
+4. **ODS prioritarios** sugeridos (7, 9, 12, 13).
+5. **Aspectos ASG materiales** y controversias reales.
+6. **Aprovechamiento en clase** (trabajos T1, T2 o T3).
 
 ---
 

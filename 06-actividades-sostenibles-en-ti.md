@@ -1,6 +1,26 @@
 ## Unidad 06 · Actividades sostenibles en TI y normativa ambiental
 
+<span class="badge badge-ra">RA5 · Criterios a–i</span>
+<span class="badge badge-tic">Green IT Operativo</span>
+<span class="badge badge-hardware">Gestión RAEE (RD 110/2015)</span>
+<span class="badge badge-kpi">Auditoría Energética Puesto</span>
+
 **Módulo 1708 · Sostenibilidad aplicada al sistema productivo**
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">120 W</div>
+    <div class="stat-label">Potencia media por puesto técnico</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">0,26</div>
+    <div class="stat-label">kgCO₂e/kWh mix España</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">RD 110/2015</div>
+    <div class="stat-label">Regulación estatal de RAEE</div>
+  </div>
+</div>
 
 Donde el módulo deja de hablar de teoría: mide, aplica estrategias y cumple la ley.
 
@@ -116,6 +136,13 @@ Fuente: Real Decreto 659/2023, Anexo VIII (BOE-A-2023-16889), módulo 1708.
 ## Tu huella profesional: el impacto de tu trabajo en TI
 
 ### Los cuatro focos del trabajo en TI
+
+```mermaid
+flowchart TD
+    CPD["<b>1. Infraestructura Cloud y CPDs</b><br/>Consumo 24/7 y refrigeración (PUE / WUE)"] --> FLOTA["<b>2. Puestos de Trabajo y Flota</b><br/>Consumo de pantallas y laptops (~120 W/puesto)"]
+    FLOTA --> CODE["<b>3. Desarrollo y Green Coding</b><br/>Complejidad algorítmica y eficiencia en servidor"]
+    CODE --> RAEE["<b>4. Gestión de Activos y RAEE</b><br/>Borrado seguro y reciclaje certificado (RD 110/2015)"]
+```
 
 - **Data centers y servidores:** aquí está la mayor parte de la huella de una empresa TIC.
 - **Flota de equipos:** consumo eléctrico de los terminales y estrategia de renovación.
@@ -453,12 +480,21 @@ Es el criterio **más normativo** del módulo. No se trata de memorizar siglas: 
 
 ---
 
-## Cómo se aplica en la práctica profesional
+## Protocolo legal de fin de vida de hardware (RA5.i)
 
-1. **Al diseñar o comprar:** exigir cumplimiento de RoHS y REACH, eficiencia energética y reparabilidad.
-2. **Al operar:** gestionar energía e agua de las instalaciones (ISO 50001 e ISO 14001).
-3. **Al desechar:** canalizar los RAEE a operadores autorizados, **borrar datos** y no tirar a vertedero.
-4. **Al reportar:** aportar datos ASG al informe CSRD o GRI si la empresa está obligada.
+```mermaid
+flowchart TD
+    A["<b>1. Inventario y Auditoría IT</b><br/>Identificación de activos y discos"] --> B["<b>2. Borrado Seguro Certificado</b><br/>NIST 800-88 / DoD 5220.22-M"]
+    B --> C{"<b>3. Diagnóstico de Estado</b>"}
+    C -- "Reutilizable" --> D["<b>Reacondicionado o Donación</b><br/>Extensión de vida útil (R3/R5)"]
+    C -- "Inservible" --> E["<b>Entrega a SCRAP Autorizado</b><br/>RD 110/2015 y Ley 7/2022"]
+    E --> F["<b>Certificado de Reciclaje</b><br/>Trazabilidad para informe ESG"]
+```
+
+- **Al diseñar/comprar:** Exigir RoHS, REACH, etiqueta energética e índice de reparabilidad. <!-- .element: class="fragment" -->
+- **Al operar:** Gestionar energía de racks y climatización con ISO 50001. <!-- .element: class="fragment" -->
+- **Al desechar:** Borrado seguro de datos y entrega obligatoria a gestor SCRAP. <!-- .element: class="fragment" -->
+- **Al reportar:** Justificar trazabilidad y kg recuperados en el informe CSRD/GRI. <!-- .element: class="fragment" -->
 
 --
 

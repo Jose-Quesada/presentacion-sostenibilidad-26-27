@@ -1,5 +1,11 @@
 ## Unidad 02 · Aspectos ASG y grupos de interés
 
+<span class="badge badge-ra">RA1 (b, d) · RA6 (a, b)</span>
+<span class="badge badge-e">Ambiental</span>
+<span class="badge badge-s">Social</span>
+<span class="badge badge-g">Gobernanza</span>
+<span class="badge badge-tic">Mendelow & Stakeholders</span>
+
 **Módulo 1708 · Sostenibilidad aplicada al sistema productivo (30 h)**
 
 - Bloque de trabajo: **identificar asuntos ambientales, sociales y de gobernanza** y relacionarlos con los grupos de interés.
@@ -10,6 +16,21 @@
 --
 
 ## El módulo y dónde encaja esta unidad
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">4 Cuadr.</div>
+    <div class="stat-label">Matriz Mendelow (Poder / Interés)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">CSRD</div>
+    <div class="stat-label">Reporte con doble materialidad</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">3 Pilares</div>
+    <div class="stat-label">Ambiental, Social y Gobernanza</div>
+  </div>
+</div>
 
 - **Código:** 1708 · **Duración:** 30 horas (3 ECTS).
 - **Ámbito:** común a grado medio y superior.
@@ -68,12 +89,17 @@ Objetivo didáctico de esta unidad:
 
 ## Bloque 1 · ¿Qué es un aspecto ASG?
 
+```mermaid
+flowchart TD
+    ACT["<b>Actividad Tecnológica TIC</b><br/>(Servicios Cloud, Desarrollo Web/App, Hardware)"] --> E["🌿 <b>Ambiental (E)</b><br/>Energía de CPDs, agua, huella CO₂, RAEE"]
+    ACT --> S["👥 <b>Social (S)</b><br/>Privacidad, sesgos IA, accesibilidad, empleo"]
+    ACT --> G["⚖️ <b>Gobernanza (G)</b><br/>Ciberseguridad NIS2, ética de datos, reporte CSRD"]
+```
+
 Un **aspecto ASG** (también llamado *tema* o *cuestión material*) es cualquier elemento de la actividad, producto o servicio de una empresa, o de su entorno, que cumpla una de estas dos condiciones:
 
 - Generar un **impacto positivo o negativo** sobre el medio ambiente, las personas o la gobernanza.
 - Afectar a la **creación de valor** económico: riesgo u oportunidad.
-
-Se clasifica en tres familias: **A**, **S** y **G**.
 
 --
 
@@ -261,23 +287,31 @@ Criterio **RA6.a:** "Se han identificado los principales grupos de interés de l
 
 ---
 
-## Matriz poder / interés: dónde poner a cada uno
+## Matriz poder / interés (Mendelow)
 
-| | **Alto interés** | **Bajo interés** |
-|---|---|---|
-| **Bajo poder** | **Colaborar:** satisfacer e implicar | **Mantener:** información básica |
-| **Alto poder** | **Gestionar de cerca:** informar e implicar, mayor atención | **Supervigilar:** monitoreo continuo; riesgo si se descuidan |
-
-Es la herramienta básica para **priorizar** la atención a los grupos.
+```mermaid
+flowchart TD
+    MEND["👥 <b>Matriz Poder vs. Interés de Mendelow</b>"]
+    MEND --> P1["<b>Alto Poder</b>"]
+    MEND --> P2["<b>Bajo Poder</b>"]
+    P1 --> GC["⭐ <b>Gestionar de Cerca</b><br/>Alto Interés · Inversores y Clientes"]
+    P1 --> MS["🤝 <b>Mantener Satisfechos</b><br/>Bajo Interés · Reguladores (AEPD)"]
+    P2 --> MI["📢 <b>Mantener Informados</b><br/>Alto Interés · Desarrolladores y ONGs"]
+    P2 --> MB["👀 <b>Monitorizar</b><br/>Bajo Interés · Público general"]
+```
 
 --
 
-## Ejemplos de ubicación en la matriz
+## Ejemplos de ubicación y estrategia
 
-- **Clientes potenciales** → *gestionar de cerca* (alto interés, alto poder de decisión de compra).
-- **Prensa** → *supervigilar* (puede dañarte mucho aunque su interés diario sea bajo).
-- **Comunidad lejana** → *mantener* con información básica.
-- Regla: **arriba a la derecha** = máxima atención.
+- <span class="badge badge-alert">Gestionar de cerca</span> Inversores con mandatos ESG y grandes clientes B2B. <!-- .element: class="fragment fade-up" -->
+- <span class="badge badge-g">Mantener satisfechos</span> Autoridades de control (cumplimiento RGPD, NIS2, CSRD). <!-- .element: class="fragment fade-up" -->
+- <span class="badge badge-s">Mantener informados</span> Plantilla técnica y usuarios de software libre. <!-- .element: class="fragment fade-up" -->
+- <span class="badge">Monitorizar</span> Espectadores externos sin afección directa. <!-- .element: class="fragment fade-up" -->
+
+<div class="box-highlight fragment fade-up">
+<b>Regla de oro:</b> El cuadrante superior derecho (Alto Poder + Alto Interés) define la prioridad de diálogo del informe de sostenibilidad.
+</div>
 
 ---
 

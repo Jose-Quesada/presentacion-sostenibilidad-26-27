@@ -1,6 +1,26 @@
 ## Unidad 08 · Prácticas y trabajos centrados en el sector informático
 
+<span class="badge badge-ra">Evaluación Continua · RA1 a RA6</span>
+<span class="badge badge-tic">Proyectos T1 · T2 · T3</span>
+<span class="badge badge-software">10 Prácticas Técnicas (P1–P10)</span>
+<span class="badge badge-kpi">Rúbricas Analíticas Oficiales</span>
+
 **Módulo 1708 · Sostenibilidad aplicada al sistema productivo**
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">3 Proy.</div>
+    <div class="stat-label">Proyectos trimestrales colaborativos</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">10 Práct.</div>
+    <div class="stat-label">Prácticas técnicas individuales</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">6 RAs</div>
+    <div class="stat-label">Evaluación competencial integral</div>
+  </div>
+</div>
 
 - La **propuesta didáctica completa** del módulo
 - Cubre los **seis RA** (RA1 a RA6) en tres trimestres
@@ -240,15 +260,18 @@ Criterios **RA6.a – RA6.b**:
 
 --
 
-## Peso de cada trimestre
+## Itinerario trimestral y pesos evaluativos
 
-| Trimestre | Contenido | Peso |
-|-----------|-----------|------|
-| T1 | Mapa ASG + diagnóstico ODS | 30 % |
-| T2 | Producto o servicio sostenible | 30 % |
-| T3 | Plan de sostenibilidad + informe | 40 % |
+```mermaid
+flowchart TD
+    T1["<b>Trimestre 1 (30%)</b><br/>Diagnóstico ASG, ODS y Stakeholders"] ==> T2["<b>Trimestre 2 (30%)</b><br/>Ecodiseño, LCA y Circularidad (9R)"] ==> T3["<b>Trimestre 3 (40%)</b><br/>Plan Estratégico e Informe CSRD/GRI"]
+```
 
-> El **plan de sostenibilidad** es el **cierre integrador**: por eso pesa más.
+| Trimestre | Contenido y Enfoque | Peso sugerido |
+|-----------|---------------------|:---:|
+| **T1** | Mapa ASG + diagnóstico ODS (Diagnóstico inicial) | **30 %** |
+| **T2** | Producto o servicio sostenible (Ecodiseño y LCA) | **30 %** |
+| **T3** | Plan de sostenibilidad + informe (Cierre integrador) | **40 %** |
 
 --
 

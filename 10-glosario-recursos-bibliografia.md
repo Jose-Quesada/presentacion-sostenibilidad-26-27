@@ -1,5 +1,27 @@
 ## Unidad 10 · Glosario, recursos y bibliografía
 
+<span class="badge badge-tic">Glosario Bilingüe</span>
+<span class="badge badge-e">Marco Legal BOE / DOUE</span>
+<span class="badge badge-kpi">Solucionario Autoevaluación</span>
+<span class="badge badge-software">Herramientas Web</span>
+
+**Módulo 1708 · Sostenibilidad aplicada al sistema productivo**
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">40+</div>
+    <div class="stat-label">Términos técnicos bilingües definidos</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Legislación ambiental BOE / DOUE</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">10 Unid.</div>
+    <div class="stat-label">Solucionario completo de preguntas</div>
+  </div>
+</div>
+
 ---
 
 ## Qué vas a aprender en esta unidad

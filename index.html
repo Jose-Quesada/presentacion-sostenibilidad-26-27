@@ -3,19 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sostenibilidad aplicada al sistema productivo</title>
+    <title>Sostenibilidad aplicada al sistema productivo · Módulo 1708</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/dracula.css" id="theme">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
     <style>
-        .reveal pre code {
-            max-height: 9em;
-            overflow-y: auto;
-            font-size: 80%;
+        /* ========================================================
+           SISTEMA DE ESTILOS Y COMPONENTES VISUALES SOSTENIBILIDAD
+           ======================================================== */
+        :root {
+            --r-main-font-size: 38px;
+            --color-e: #10b981;      /* Verde: Dimensión Ambiental */
+            --color-s: #3b82f6;      /* Azul: Dimensión Social */
+            --color-g: #a855f7;      /* Púrpura: Gobernanza */
+            --color-alert: #f59e0b;  /* Ámbar: Riesgos / Exámenes */
+            --color-danger: #ef4444; /* Rojo: Crisis / Infracción */
         }
 
+        /* Toolbar de navegación superior */
         .toolbar {
             position: fixed;
             top: 12px;
@@ -26,20 +33,39 @@
         }
 
         .toolbar select {
-            padding: 6px 10px;
+            padding: 6px 12px;
             font-size: 13px;
+            font-weight: 500;
             border-radius: 6px;
-            border: 1px solid #ccc;
-            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #444;
+            background: rgba(30, 30, 40, 0.9);
+            color: #eee;
             cursor: pointer;
             font-family: inherit;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
             outline: none;
-            max-width: 460px;
+            max-width: 420px;
+            transition: all 0.2s ease;
         }
 
         .toolbar select:hover {
-            border-color: #999;
+            border-color: var(--color-e);
+            background: rgba(40, 40, 55, 0.95);
+        }
+
+        /* Ayuda rápida de atajos de teclado */
+        .keyboard-hint {
+            position: fixed;
+            bottom: 12px;
+            left: 14px;
+            z-index: 90;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.45);
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 4px 8px;
+            border-radius: 4px;
+            pointer-events: none;
         }
 
         #loading {
@@ -48,11 +74,14 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 1.4rem;
-            color: #888;
+            color: #10b981;
             z-index: 200;
             font-family: system-ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
+        /* Diapositivas y ajuste */
         .reveal .slides section {
             overflow: visible;
         }
@@ -61,40 +90,265 @@
             overflow-y: auto;
         }
 
-        /* Tamaño base del texto: un poco más grande que el valor por defecto del tema */
-        :root {
-            --r-main-font-size: 44px;
-        }
-
-        /* Fragment: solo animar propiedades visuales. Con `transition: all`
-           (regla de reveal.css) el font-size heredado también se anima y
-           fitCurrentSlide, al medir de forma síncrona, ve un layout viejo. */
+        /* Fragmentos animados Reveal.js */
         .reveal .fragment {
-            transition: opacity .2s ease, visibility .2s ease, transform .2s ease,
-                        color .2s ease, text-decoration .2s ease;
+            transition: opacity .25s ease, visibility .25s ease, transform .25s ease,
+                        color .25s ease, background-color .25s ease;
         }
 
-        /* URLs y tokens largos: partir línea en vez de forzar overflow de ancho */
+        .reveal .fragment.highlight-green.visible {
+            color: var(--color-e) !important;
+            font-weight: bold;
+        }
+
+        .reveal .fragment.highlight-blue.visible {
+            color: var(--color-s) !important;
+            font-weight: bold;
+        }
+
+        .reveal .fragment.highlight-purple.visible {
+            color: var(--color-g) !important;
+            font-weight: bold;
+        }
+
+        /* URLs y texto largo */
         .reveal li,
         .reveal p {
             overflow-wrap: anywhere;
+            line-height: 1.35;
         }
 
-        /* Tablas: partir palabra en celda estrecha para que la tabla quepa */
-        .reveal td,
+        /* Tablas estilizadas */
+        .reveal table {
+            font-size: 75%;
+            margin: 0.8em auto;
+            border-collapse: collapse;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        }
+
         .reveal th {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 10px 14px;
+            border-bottom: 2px solid rgba(16, 185, 129, 0.4);
+            font-weight: 600;
+        }
+
+        .reveal td {
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             overflow-wrap: anywhere;
+        }
+
+        .reveal td:first-child,
+        .reveal th:first-child {
+            overflow-wrap: normal;
+            word-break: normal;
+            font-weight: 600;
+        }
+
+        .reveal pre code {
+            max-height: 10em;
+            overflow-y: auto;
+            font-size: 80%;
+            border-radius: 8px;
+        }
+
+        /* Citas y Callouts */
+        .reveal blockquote {
+            width: 95%;
+            margin: 0.8em auto;
+            padding: 0.6em 1em;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 6px solid var(--color-e);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .reveal tr:hover td {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* Badges / Etiquetas temáticas */
+        .badge, .badge-ra, .badge-tic, .badge-cloud, .badge-software, .badge-hardware, .badge-e, .badge-s, .badge-g, .badge-kpi, .badge-alert, .badge-alerta {
+            display: inline-block;
+            font-size: 0.6em;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+        .badge-ra { background: rgba(16, 185, 129, 0.25); color: #34d399; border: 1px solid #10b981; }
+        .badge-tic { background: rgba(2, 132, 199, 0.25); color: #38bdf8; border: 1px solid #0284c7; }
+        .badge-cloud { background: rgba(14, 165, 233, 0.25); color: #38bdf8; border: 1px solid #0ea5e9; }
+        .badge-software { background: rgba(139, 92, 246, 0.25); color: #c4b5fd; border: 1px solid #8b5cf6; }
+        .badge-hardware { background: rgba(100, 116, 139, 0.25); color: #cbd5e1; border: 1px solid #64748b; }
+        .badge-e { background: rgba(16, 185, 129, 0.25); color: #34d399; border: 1px solid #10b981; }
+        .badge-s { background: rgba(59, 130, 246, 0.25); color: #60a5fa; border: 1px solid #3b82f6; }
+        .badge-g { background: rgba(168, 85, 247, 0.25); color: #c084fc; border: 1px solid #a855f7; }
+        .badge-alert, .badge-alerta { background: rgba(245, 158, 11, 0.25); color: #fbbf24; border: 1px solid #f59e0b; }
+        .badge-kpi { background: rgba(20, 184, 166, 0.25); color: #2dd4bf; border: 1px solid #14b8a6; }
+
+        /* Cajas de contenido destacado y comparativas */
+        .two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .card-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .box-highlight {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-left: 6px solid var(--color-e);
+            border-radius: 8px;
+            padding: 12px 18px;
+            margin: 0.8em auto;
+            text-align: left;
+        }
+
+        .box-exam {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-left: 6px solid var(--color-alert);
+            border-radius: 8px;
+            padding: 12px 18px;
+            margin: 0.8em auto;
+            text-align: left;
+        }
+
+        /* Cifras impactantes (Stats) */
+        .stat-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 16px;
+            margin: 1em auto;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 16px 20px;
+            flex: 1;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: var(--color-e);
+            line-height: 1.1;
+        }
+        .stat-label {
+            font-size: 0.7em;
+            color: #bbb;
+            margin-top: 6px;
+        }
+
+        /* ========================================================
+           SOPORTE AVANZADO PARA MERMAID EN REVEAL.JS
+           ======================================================== */
+        .reveal .mermaid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0.6em auto !important;
+            width: 100% !important;
+        }
+
+        .reveal .mermaid svg {
+            font-size: 13px !important;
+            width: 100% !important;
+            max-width: 95% !important;
+            max-height: 50vh !important;
+            height: auto !important;
+        }
+
+        .reveal .mermaid .label,
+        .reveal .mermaid .nodeLabel,
+        .reveal .mermaid .edgeLabel {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+            line-height: 1.25 !important;
+        }
+
+        .reveal .mermaid foreignObject {
+            overflow: hidden;
+        }
+
+        .reveal .mermaid foreignObject div {
+            text-align: center;
+        }
+
+        .reveal .mermaid .cluster rect {
+            fill: rgba(30, 41, 59, 0.7) !important;
+            stroke: #475569 !important;
+            stroke-width: 1.5px !important;
+            rx: 6px !important;
+            ry: 6px !important;
+        }
+
+        .reveal .mermaid .cluster-label text,
+        .reveal .mermaid .cluster-label span,
+        .reveal .mermaid .cluster-label div {
+            font-weight: 700 !important;
+            font-size: 13.5px !important;
+            color: #38bdf8 !important;
+            fill: #38bdf8 !important;
+            letter-spacing: 0.02em;
+        }
+
+        .reveal .mermaid .node rect,
+        .reveal .mermaid .node circle,
+        .reveal .mermaid .node polygon {
+            stroke-width: 1.5px !important;
+        }
+
+        .reveal .mermaid .pieTitleText {
+            font-size: 18px !important;
+            fill: #ffffff !important;
+            text-anchor: middle !important;
+        }
+
+        .reveal .mermaid-error {
+            display: block;
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            border-radius: 6px;
+            padding: 10px;
+            color: #c53030;
+            font-size: 12px;
+            white-space: pre-wrap;
+            text-align: left;
+            margin: 0.5em 0;
         }
     </style>
 </head>
 <body>
 
     <div class="toolbar">
-        <select id="theme-selector" title="Tema"></select>
-        <select id="unit-selector" title="Seleccionar unidad"></select>
+        <select id="theme-selector" title="Tema visual"></select>
+        <select id="unit-selector" title="Seleccionar unidad de Sostenibilidad"></select>
     </div>
 
-    <div id="loading">Cargando presentación…</div>
+    <div class="keyboard-hint">
+        [Espacio/Flechas] Navegar · [F] Pantalla Completa · [O] Visión General · [S] Notas de Ponente
+    </div>
+
+    <div id="loading">Cargando presentación de Sostenibilidad…</div>
 
     <div class="reveal">
         <div class="slides"></div>
@@ -104,69 +358,98 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
 
     <script>
         (function () {
             'use strict';
 
+            const MD_RE = /```mermaid\s*\n([\s\S]*?)```/g;
             const SEPARATOR = '^---\\r?$';
             const SEPARATOR_VERT = '^--\\r?$';
 
+            // Catálogo completo de las 10 unidades del módulo 1708
             const units = [
                 '01-fundamentos-sostenibilidad.md',
-                // '02-aspectos-ASG-y-grupos-de-interes.md',
-                // '03-estandares-metricas-e-inversion-responsable.md',
-                // '04-retos-ambientales-y-sociales-sector-informatico.md',
-                // '05-economia-circular-verde-y-ecodisenio.md',
-                // '06-actividades-sostenibles-en-ti.md',
-                // '07-plan-sostenibilidad-e-informe.md',
-                // '08-practicas-y-trabajos-sector-informatico.md',
-                // '09-casos-empresas-sector-informatico.md',
-                // '10-glosario-recursos-bibliografia.md'
+                '02-aspectos-ASG-y-grupos-de-interes.md',
+                '03-estandares-metricas-e-inversion-responsable.md',
+                '04-retos-ambientales-y-sociales-sector-informatico.md',
+                '05-economia-circular-verde-y-ecodisenio.md',
+                '06-actividades-sostenibles-en-ti.md',
+                '07-plan-sostenibilidad-e-informe.md',
+                '08-practicas-y-trabajos-sector-informatico.md',
+                '09-casos-empresas-sector-informatico.md',
+                '10-glosario-recursos-bibliografia.md'
             ];
 
             const unitLabels = {
-                '01-fundamentos-sostenibilidad.md': 'U1 · Fundamentos de la sostenibilidad',
-                // '02-aspectos-ASG-y-grupos-de-interes.md': 'U2 · Aspectos ASG y grupos de interés',
-                // '03-estandares-metricas-e-inversion-responsable.md': 'U3 · Estándares, métricas e inversión responsable',
-                // '04-retos-ambientales-y-sociales-sector-informatico.md': 'U4 · Retos del sector informático',
-                // '05-economia-circular-verde-y-ecodisenio.md': 'U5 · Economía circular, verde y ecodiseño',
-                // '06-actividades-sostenibles-en-ti.md': 'U6 · Actividades sostenibles en TI',
-                // '07-plan-sostenibilidad-e-informe.md': 'U7 · Plan de sostenibilidad e informe',
-                // '08-practicas-y-trabajos-sector-informatico.md': 'U8 · Prácticas y trabajos',
-                // '09-casos-empresas-sector-informatico.md': 'U9 · Casos de empresas TIC',
-                // '10-glosario-recursos-bibliografia.md': 'U10 · Glosario, recursos y bibliografía'
+                '01-fundamentos-sostenibilidad.md': 'U01 · Fundamentos y marcos internacionales',
+                '02-aspectos-ASG-y-grupos-de-interes.md': 'U02 · Aspectos ASG y grupos de interés',
+                '03-estandares-metricas-e-inversion-responsable.md': 'U03 · Estándares, métricas e inversión responsable',
+                '04-retos-ambientales-y-sociales-sector-informatico.md': 'U04 · Retos del sector informático y TIC',
+                '05-economia-circular-verde-y-ecodisenio.md': 'U05 · Economía circular, verde y ecodiseño',
+                '06-actividades-sostenibles-en-ti.md': 'U06 · Actividades sostenibles en TI y normativa',
+                '07-plan-sostenibilidad-e-informe.md': 'U07 · Plan de sostenibilidad e informe ASG',
+                '08-practicas-y-trabajos-sector-informatico.md': 'U08 · Prácticas, proyectos trimestrales y rúbricas',
+                '09-casos-empresas-sector-informatico.md': 'U09 · Banco de empresas del sector tecnológico',
+                '10-glosario-recursos-bibliografia.md': 'U10 · Glosario, legislación y solucionario'
             };
+
+            // Configuración de Mermaid con soporte para tema oscuro y claro
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: 'dark',
+                securityLevel: 'loose',
+                fontFamily: 'Segoe UI, system-ui, -apple-system, sans-serif',
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true,
+                    padding: 16,
+                    nodeSpacing: 35,
+                    rankSpacing: 45,
+                    subGraphTitleMargin: {
+                        top: 22,
+                        bottom: 24
+                    },
+                    curve: 'linear'
+                },
+                themeVariables: {
+                    fontSize: '13px',
+                    fontFamily: 'Segoe UI, system-ui, sans-serif',
+                    darkMode: true,
+                    primaryColor: '#059669',
+                    primaryTextColor: '#ffffff',
+                    primaryBorderColor: '#10b981',
+                    lineColor: '#6ee7b7',
+                    clusterBkg: 'rgba(30, 41, 59, 0.7)',
+                    clusterBorder: '#475569',
+                    titleColor: '#38bdf8'
+                }
+            });
 
             const params = new URLSearchParams(window.location.search);
             let currentMd = params.get('md') || units[0];
             if (!units.includes(currentMd)) currentMd = units[0];
 
             var themes = [
-                { name: 'white',     label: 'White' },
-                { name: 'black',     label: 'Black' },
-                { name: 'league',    label: 'League' },
-                { name: 'sky',       label: 'Sky' },
-                { name: 'beige',     label: 'Beige' },
-                { name: 'simple',    label: 'Simple' },
-                { name: 'serif',     label: 'Serif' },
-                { name: 'night',     label: 'Night' },
-                { name: 'moon',      label: 'Moon' },
-                { name: 'solarized', label: 'Solarized' },
-                { name: 'blood',     label: 'Blood' },
-                { name: 'dracula',   label: 'Dracula' },
+                { name: 'dracula',   label: 'Dracula (Oscuro TIC)' },
+                { name: 'white',     label: 'White (Claro)' },
+                { name: 'black',     label: 'Black (Negro)' },
+                { name: 'league',    label: 'League (Elegante)' },
+                { name: 'night',     label: 'Night (Azulado)' },
+                { name: 'solarized', label: 'Solarized' }
             ];
 
             var defaultTheme = 'dracula';
-            var currentTheme = params.get('theme') || localStorage.getItem('reveal-theme') || defaultTheme;
-
+            var currentTheme = params.get('theme') || localStorage.getItem('reveal-theme-sost') || defaultTheme;
             var themeValid = themes.some(function (t) { return t.name === currentTheme; });
             if (!themeValid) currentTheme = defaultTheme;
 
             function applyTheme(name) {
                 var href = 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/' + name + '.css';
                 document.getElementById('theme').href = href;
-                localStorage.setItem('reveal-theme', name);
+                localStorage.setItem('reveal-theme-sost', name);
             }
 
             applyTheme(currentTheme);
@@ -194,10 +477,10 @@
             });
 
             var unitSelector = document.getElementById('unit-selector');
-            units.forEach(function (file, index) {
+            units.forEach(function (file) {
                 var opt = document.createElement('option');
                 opt.value = file;
-                opt.textContent = unitLabels[file] || 'Unidad ' + (index + 1);
+                opt.textContent = unitLabels[file] || file;
                 if (file === currentMd) opt.selected = true;
                 unitSelector.appendChild(opt);
             });
@@ -206,15 +489,46 @@
                 window.location.href = buildUrl(this.value, currentTheme);
             });
 
+            async function renderMermaidOnSlide(slide) {
+                var els = slide.querySelectorAll('.mermaid:not([data-processed])');
+                for (var i = 0; i < els.length; i++) {
+                    var el = els[i];
+                    try {
+                        var id = 'm-' + Math.random().toString(36).slice(2, 10);
+                        var tmp = el.cloneNode(true);
+                        var brs = tmp.getElementsByTagName('br');
+                        for (var j = brs.length - 1; j >= 0; j--) {
+                            brs[j].parentNode.replaceChild(document.createTextNode('<br>'), brs[j]);
+                        }
+                        var code = tmp.textContent.trim().replace(/<br\b[^>]*>/gi, '<br/>');
+                        if (!code) continue;
+                        var result = await mermaid.render(id, code);
+                        el.innerHTML = result.svg;
+                        var svgEl = el.querySelector('svg');
+                        if (svgEl) {
+                            svgEl.style.overflow = 'visible';
+                        }
+                    } catch (e) {
+                        el.innerHTML = '<pre class="mermaid-error">Error al procesar diagrama Mermaid:\n' + e.message + '</pre>';
+                    }
+                    el.setAttribute('data-processed', 'true');
+                }
+            }
+
             async function loadPresentation(mdFile) {
                 try {
                     var resp = await fetch(mdFile);
                     if (!resp.ok) throw new Error('HTTP ' + resp.status);
                     var content = await resp.text();
 
+                    // Preprocesar diagramas Mermaid en markdown
+                    content = content.replace(MD_RE, function (_, code) {
+                        return '<div class="mermaid">\n' + code.trim() + '\n</div>';
+                    });
+
                     var titleMatch = content.match(/^##\s+(.*?)(?:\s*<!--.*-->)?$/m);
                     if (titleMatch) {
-                        document.title = titleMatch[1];
+                        document.title = titleMatch[1] + ' · Sostenibilidad 1708';
                     }
 
                     var slidesEl = document.querySelector('.reveal .slides');
@@ -235,9 +549,18 @@
                         hash: true,
                         center: true,
                         transition: 'slide',
+                        backgroundTransition: 'fade',
+                        slideNumber: 'c/t',
+                        showSlideNumber: 'all',
+                        progress: true,
+                        history: true,
+                        keyboard: true,
+                        overview: true,
+                        fragments: true,
+                        pdfSeparateFragments: false,
                         margin: 0.04,
                         markdown: { smartypants: true },
-                        plugins: [RevealMarkdown, RevealNotes, RevealHighlight]
+                        plugins: [RevealMarkdown, RevealNotes, RevealHighlight, RevealMath.KaTeX]
                     });
                     window.__deck = deck;
 
@@ -257,10 +580,6 @@
                         var needW = slide.scrollWidth;
                         var fits = needH <= availH && needW <= availW;
                         if (!fits) {
-                            // Búsqueda binaria del mayor k que cabe (H y W).
-                            // Se guarda el string EXACTO probado: si el final
-                            // redondeara distinto, un cambio de línea en el
-                            // umbral desbordaría la diapositiva.
                             var lo = 0.45, loSize = '45.00%', hi = 1, k = 1;
                             for (var i = 0; i < 12; i++) {
                                 k = (lo + hi) / 2;
@@ -289,15 +608,28 @@
                         settleTimer = setTimeout(fitCurrentSlide, 350);
                     }
 
+                    function renderAndFit(slide) {
+                        if (!slide) return;
+                        fitCurrentSlide();
+                        renderMermaidOnSlide(slide).then(fitCurrentSlide, fitCurrentSlide);
+                        scheduleSettleFit();
+                    }
+
                     deck.on('ready', function () {
                         document.getElementById('loading').style.display = 'none';
-                        fitCurrentSlide();
-                        scheduleSettleFit();
+                        renderMermaidOnSlide(slidesEl).then(function () {
+                            renderAndFit(deck.getCurrentSlide());
+                        }, function () {
+                            renderAndFit(deck.getCurrentSlide());
+                        });
                     });
-                    deck.on('slidechanged', function () { fitCurrentSlide(); scheduleSettleFit(); });
+                    deck.on('slidechanged', function (event) {
+                        renderAndFit(event && event.currentSlide);
+                    });
                     deck.on('resize', fitCurrentSlide);
                     deck.on('fragmentshown', function () { fitCurrentSlide(); scheduleSettleFit(); });
                     deck.on('fragmenthidden', function () { fitCurrentSlide(); scheduleSettleFit(); });
+
                     var themeEl = document.getElementById('theme');
                     if (themeEl) {
                         themeEl.addEventListener('load', function () { fitCurrentSlide(); scheduleSettleFit(); });

@@ -1,6 +1,26 @@
 ## Unidad 03 · Estándares, métricas e inversión responsable
 
+<span class="badge badge-ra">RA1 (e, f) · RA6 (c, d)</span>
+<span class="badge badge-kpi">PUE / WUE / SCI</span>
+<span class="badge badge-cloud">Normas ISO & GHG</span>
+<span class="badge badge-tic">GRI Standards & ISR</span>
+
 ### Módulo 1708 · Sostenibilidad aplicada al sistema productivo
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">1,1 – 1,2</div>
+    <div class="stat-label">PUE benchmark hyperscalers</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">ISO 14064</div>
+    <div class="stat-label">Cuantificación huella GEI</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">GRI 300</div>
+    <div class="stat-label">Reporte ambiental estándar</div>
+  </div>
+</div>
 
 **Trabajas:** RA1 · criterios de evaluación **e** y **f**
 
@@ -68,12 +88,30 @@ Un **estándar de métricas** dice **qué medir, cómo medirlo y cómo reportarl
 
 ## ¿Para qué sirve un estándar?
 
-- **Ordena:** todos miden lo mismo con la misma regla.
-- **Compara:** permite el benchmarking entre empresas y sectores.
-- **Da confianza:** inversores, clientes y administraciones confían en el dato.
-- **Obliga:** la legislación (CSRD y ESRS) se apoya en estándares técnicos.
+```mermaid
+flowchart TD
+    subgraph Medicion ["1. Medición Técnica"]
+        ISO["<b>ISO 14064 / GHG Protocol</b><br/>(Inventario tCO2e Scopes 1, 2 y 3)"]
+        GG["<b>The Green Grid</b><br/>(PUE / WUE en Data Centers)"]
+        GSF["<b>Green Software Foundation</b><br/>(SCI - Software Carbon Intensity)"]
+    end
+    subgraph Marcos ["2. Divulgación y Mercados"]
+        GRI["<b>GRI Standards 2021</b><br/>(Impacto temático multiactores)"]
+        IFRS["<b>ISSB / IFRS S1-S2</b><br/>(Materialidad Financiera Inversores)"]
+        CDP["<b>CDP Scoring (A - D)</b><br/>(Clima, Agua, Bosques)"]
+    end
+    subgraph Regulacion ["3. Normativa Legal Obligatoria"]
+        CSRD["<b>Directiva CSRD (UE 2022/2464)</b><br/>Doble Materialidad + Auditoría + ESRS"]
+    end
+    Medicion --> Marcos --> Regulacion
+```
 
-> Un dato ASG sin estándar es una opinión; con estándar es una **evidencia**.
+- **Ordena:** todos miden con la misma métrica contrastable. <!-- .element: class="fragment" -->
+- **Compara:** permite el benchmarking entre empresas TIC del sector. <!-- .element: class="fragment" -->
+- **Confianza:** auditores e inversores confían en datos estandarizados. <!-- .element: class="fragment" -->
+- **Obliga:** la directiva **CSRD** y los estándares **ESRS** exigen rigor auditable. <!-- .element: class="fragment" -->
+
+> Un dato ASG sin estándar es una opinión publicitaria; con estándar es una **evidencia técnica**. <!-- .element: class="fragment" -->
 
 ---
 
@@ -286,26 +324,28 @@ Un **KPI** (indicador clave de desempeño) traduce una política en un **número
 
 --
 
-## El KPI estrella: PUE
+## El KPI estrella de infraestructura: PUE
 
-**PUE = energía total del data center / energía de los sistemas IT**
+<div class="stat-card">
+    <div class="stat-number">PUE = Total / IT</div>
+    <div class="stat-label">Power Usage Effectiveness (The Green Grid / ISO 30134-2)</div>
+</div>
 
-- **PUE 1,0** sería ideal: toda la energía va a los sistemas IT.
-- Los **mejores data centers** del mundo están en torno a **1,1**.
-- Un PUE de 1,5 significa que por cada 1 kWh dedicado a IT se gastan 0,5 kWh en frío, iluminación y distribución.
-
-**Perfecto para el examen:** te van a pedir que lo **calcules**.
+- <span class="badge badge-kpi">Ideal</span> **PUE = 1,00:** El 100 % de la electricidad va directa a servidores, CPU y almacenamiento. <!-- .element: class="fragment" -->
+- <span class="badge badge-e">Eficiencia puntera</span> **PUE ≤ 1,15:** Instalaciones con refrigeración líquida directa y *free cooling*. <!-- .element: class="fragment" -->
+- <span class="badge badge-alert">Ineficiente</span> **PUE ≥ 1,50:** El 50 % o más de la factura eléctrica se gasta en climatización auxiliar. <!-- .element: class="fragment" -->
 
 --
 
 ## Ejemplo de cálculo de PUE
 
-- Energía total del data center: **1.200 MWh**.
-- Energía de los sistemas IT: **1.000 MWh**.
-- **PUE = 1.200 / 1.000 = 1,2**.
-- Interpretación: por cada 1 kWh en IT hay **0,2 kWh auxiliares**.
+<div class="box-highlight">
+<b>Caso práctico:</b> Centro de datos con <b>1.200 MWh</b> de consumo total y <b>1.000 MWh</b> dedicados a equipos IT.
+</div>
 
-**Objetivo:** bajar el PUE actuando sobre refrigeración, iluminación y distribución eléctrica.
+- **Fórmula:** $$PUE = \frac{1.200\text{ MWh}}{1.000\text{ MWh}} = \mathbf{1,20}$$ <!-- .element: class="fragment fade-up" -->
+- **Diagnóstico técnico:** Por cada 1 kWh de computación IT, se consumen 0,20 kWh en sistemas auxiliares (climatización y pérdidas). <!-- .element: class="fragment fade-up" -->
+- **Palanca de mejora:** Optimizar pasillos fríos/calientes y elevar la temperatura de consigna a 24-26 °C según ASHRAE. <!-- .element: class="fragment fade-up" -->
 
 --
 
