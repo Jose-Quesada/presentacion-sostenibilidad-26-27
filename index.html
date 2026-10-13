@@ -286,11 +286,13 @@
         }
 
         .reveal .mermaid foreignObject {
-            overflow: hidden;
+            overflow: visible !important;
         }
 
         .reveal .mermaid foreignObject div {
             text-align: center;
+            overflow: visible !important;
+            line-height: 1.25 !important;
         }
 
         .reveal .mermaid .cluster rect {
@@ -301,14 +303,23 @@
             ry: 6px !important;
         }
 
+        .reveal .mermaid .cluster-label {
+            overflow: visible !important;
+        }
+
+        .reveal .mermaid .cluster-label foreignObject {
+            overflow: visible !important;
+        }
+
         .reveal .mermaid .cluster-label text,
         .reveal .mermaid .cluster-label span,
         .reveal .mermaid .cluster-label div {
             font-weight: 700 !important;
-            font-size: 13.5px !important;
+            font-size: 13px !important;
             color: #38bdf8 !important;
             fill: #38bdf8 !important;
-            letter-spacing: 0.02em;
+            letter-spacing: normal !important;
+            overflow: visible !important;
         }
 
         .reveal .mermaid .node rect,
@@ -405,11 +416,11 @@
                 flowchart: {
                     useMaxWidth: true,
                     htmlLabels: true,
-                    padding: 16,
+                    padding: 22,
                     nodeSpacing: 35,
                     rankSpacing: 45,
                     subGraphTitleMargin: {
-                        top: 22,
+                        top: 24,
                         bottom: 24
                     },
                     curve: 'linear'
@@ -507,6 +518,48 @@
                         var svgEl = el.querySelector('svg');
                         if (svgEl) {
                             svgEl.style.overflow = 'visible';
+
+                            // Ajustar nodos para que los textos nunca se corten
+                            var nodes = svgEl.querySelectorAll('g.node');
+                            for (var n = 0; n < nodes.length; n++) {
+                                var fo = nodes[n].querySelector('foreignObject');
+                                var div = fo ? fo.querySelector('div') : null;
+                                var rect = nodes[n].querySelector('rect.label-container');
+                                if (fo && div && rect) {
+                                    var neededH = Math.max(div.scrollHeight || 0, div.offsetHeight || 0, 32);
+                                    var currentFoH = parseFloat(fo.getAttribute('height')) || 0;
+                                    if (neededH > currentFoH) {
+                                        var diffH = neededH - currentFoH;
+                                        fo.setAttribute('height', (neededH + 6).toString());
+                                        var currentRectH = parseFloat(rect.getAttribute('height')) || 0;
+                                        var newRectH = currentRectH + diffH + 10;
+                                        rect.setAttribute('height', newRectH.toString());
+                                        rect.setAttribute('y', (-newRectH / 2).toString());
+                                    }
+                                }
+                            }
+
+                            // Ajustar clusters / subgrafos para que el título no se trunque
+                            var clusters = svgEl.querySelectorAll('g.cluster');
+                            for (var c = 0; c < clusters.length; c++) {
+                                var cFo = clusters[c].querySelector('.cluster-label foreignObject');
+                                var cDiv = cFo ? cFo.querySelector('div') : null;
+                                var cRect = clusters[c].querySelector('rect');
+                                if (cFo && cDiv && cRect) {
+                                    var neededW = cDiv.scrollWidth || cDiv.offsetWidth || 0;
+                                    var currentFoW = parseFloat(cFo.getAttribute('width')) || 0;
+                                    if (neededW > currentFoW) {
+                                        cFo.setAttribute('width', (neededW + 20).toString());
+                                        var currentRectW = parseFloat(cRect.getAttribute('width')) || 0;
+                                        if (neededW + 30 > currentRectW) {
+                                            var diffW = (neededW + 40) - currentRectW;
+                                            cRect.setAttribute('width', (neededW + 40).toString());
+                                            var currentX = parseFloat(cRect.getAttribute('x')) || 0;
+                                            cRect.setAttribute('x', (currentX - diffW / 2).toString());
+                                        }
+                                    }
+                                }
+                            }
                         }
                     } catch (e) {
                         el.innerHTML = '<pre class="mermaid-error">Error al procesar diagrama Mermaid:\n' + e.message + '</pre>';

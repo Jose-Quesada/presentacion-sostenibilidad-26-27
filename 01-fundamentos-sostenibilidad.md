@@ -141,9 +141,9 @@ flowchart TD
 
 ## Los tres pilares en un data center
 
-- <span class="badge badge-e">E</span> **Kilovatios y agua:** consumo de racks, huella hídrica de climatización, servidores obsoletos. <!-- .element: class="fragment fade-up" -->
-- <span class="badge badge-s">S</span> **Personas:** derechos en fabricación de microchips, talento técnico, privacidad de clientes. <!-- .element: class="fragment fade-up" -->
-- <span class="badge badge-g">G</span> **Control y reporte:** auditorías externas, comités éticos de IA, proveedores auditados. <!-- .element: class="fragment fade-up" -->
+- <span class="badge badge-e">E</span> **Kilovatios y agua:** consumo de racks, huella hídrica de climatización, servidores obsoletos.
+- <span class="badge badge-s">S</span> **Personas:** derechos en fabricación de microchips, talento técnico, privacidad de clientes.
+- <span class="badge badge-g">G</span> **Control y reporte:** auditorías externas, comités éticos de IA, proveedores auditados.
 
 <div class="box-highlight fragment fade-up">
 <b>Regla de oro:</b> Si un pilar falla, los otros dos colapsan: no existe viabilidad económica sin sostenibilidad ambiental y legitimidad social.
